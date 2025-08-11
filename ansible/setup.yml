@@ -1,0 +1,28 @@
+---
+- name: Setup DevOps environment
+  hosts: devops
+  become: yes
+  tasks:
+    - name: Install Docker
+      yum:
+        name: docker
+        state: present
+
+    - name: Start Docker
+      service:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Install Python3 and pip
+      yum:
+        name:
+          - python3
+          - python3-pip
+        state: present
+
+    - name: Install Kubernetes tools
+      yum:
+        name:
+          - kubectl
+        state: present
