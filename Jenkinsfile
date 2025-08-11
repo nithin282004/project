@@ -8,8 +8,8 @@ pipeline {
         }
         stage('Push to Docker Hub') {
             steps {
-                bat 'docker tag myapp username/myapp:latest'
-                bat 'docker push username/myapp:latest'
+                bat 'docker tag myapp nithin282004/myapp:latest'
+                bat 'docker push nithin282004/myapp:latest'
             }
         }
         stage('Deploy to K8s') {
@@ -19,3 +19,4 @@ pipeline {
         }
     }
 }
+
